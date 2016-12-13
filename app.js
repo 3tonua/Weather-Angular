@@ -14,7 +14,7 @@ app.controller('WeatherController', function ($scope, API) {
     };
 
     $scope.searchSetting = {
-        query: null
+        query: 'Odesa'
     };
 
     $scope.current = [];

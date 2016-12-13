@@ -18,13 +18,13 @@
     <div ng-controller="WeatherController">
 
         <uib-tabset>
-            <uib-tab index="0" heading="Current">
+            <uib-tab index="0" class="text" heading="Current">
 
                 <div class="text">
                     <form>
                         <p>
-                            <input class="black" type="text" ng-model="searchSetting.query" required />
-                            <button class="btn" ng-click="searchCity()">Выбрать</button>
+                            <input class="black margin-top" type="text" ng-model="searchSetting.query" required />
+                            <button class="btn black" ng-click="searchCity()">Выбрать</button>
                         </p>
                         <p class="block">{{search.name}}</p>
                         <!--<select ng-options="option.value as option.title for option in regions" ng-model="searchSetting.region"></select>-->
@@ -44,14 +44,17 @@
                 </div>
 
             </uib-tab>
-            <uib-tab index="1" heading="Forecast">
+            <uib-tab index="1" class="text" heading="Forecast">
 
                 <div>
+
                     <!--Прогноз-->
                     <div class="text">
+                        <p class="block">{{search.name}}</p>
+                        <hr>
                         <h2>Прогноз</h2>
                         <span class="blockf">
-                    <p>{{forecasts.forecastday[1].date}}</p>
+                    <p>{{forecasts.data.forecast.forecastday[1].date}}</p>
                     <span><img ng-src="{{ forecasts.data.forecast.forecastday[1].day.condition.icon }}" alt="" /></span>
                     <p>{{ forecasts.data.forecast.forecastday[1].day.maxtemp_c }} С<sup>o</sup> | {{ forecasts.data.forecast.forecastday[1].day.mintemp_c }} С<sup>o</sup></p>
                     <p>{{forecasts.data.forecast.forecastday[1].day.condition.text }}</p>
