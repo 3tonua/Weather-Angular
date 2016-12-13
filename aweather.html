@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="weather">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather ang</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"> </script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div ng-controller="WeatherController">
+
+        <uib-tabset>
+            <uib-tab index="0" heading="Current">
+
+                <div class="text">
+                    <form>
+                        <p>
+                            <input class="black" type="text" ng-model="searchSetting.query" required />
+                            <button class="btn" ng-click="searchCity()">Выбрать</button>
+                        </p>
+                        <p class="block">{{search.name}}</p>
+                        <!--{{params.query}}-->
+                        <!--<select ng-options="option.value as option.title for option in regions" ng-model="searchSetting.region"></select>-->
+                    </form>
+                    <hr>
+
+                    <!--Текущая погода-->
+                    <div class="text">
+                        <h2>Текущая погода</h2>
+                        <p>{{forecasts.data.current.last_updated}}</p>
+                        <img ng-src="{{ forecasts.data.current.condition.icon }}" alt="" />
+                        <p>Температура: {{ searchs.data.current.temp_c }} С<sup>o</sup></p>
+                        <p>Ветер: {{forecasts.data.current.wind_kph + ' км/ч'}}</p>
+                        <p>Влажность: {{forecasts.data.current.humidity + ' %'}}</p>
+                    </div>
+
+                </div>
+
+            </uib-tab>
+            <uib-tab index="1" heading="Forecast">
+
+                <div>
+                    <!--Прогноз-->
+                    <div class="text">
+                        <h2>Прогноз</h2>
+                        <span class="blockf">
+                    <p>{{forecasts.data.forecast.forecastday[1].date}}</p>
+                    <span><img ng-src="{{ forecasts.data.forecast.forecastday[1].day.condition.icon }}" alt="" /></span>
+                    <p>{{ forecasts.data.forecast.forecastday[1].day.maxtemp_c }} С<sup>o</sup> | {{ forecasts.data.forecast.forecastday[1].day.mintemp_c }} С<sup>o</sup></p>
+                    <p>{{forecasts.data.forecast.forecastday[1].day.condition.text }}</p>
+                    <p>Ветер: {{forecasts.data.forecast.forecastday[1].day.maxwind_kph }} км/ч</p>
+                </span>
+                        <!--<hr class="vertical blockf">-->
+                        <span class="blockf">
+                    <p>{{forecasts.data.forecast.forecastday[2].date}}</p>
+                    <span><img ng-src="{{ forecasts.data.forecast.forecastday[2].day.condition.icon }}" alt="" /></span>
+                    <p>{{ forecasts.data.forecast.forecastday[2].day.maxtemp_c }} С<sup>o</sup> | {{ forecasts.data.forecast.forecastday[2].day.mintemp_c }} С<sup>o</sup></p>
+                    <p>{{forecasts.data.forecast.forecastday[2].day.condition.text }}</p>
+                    <p>Ветер: {{forecasts.data.forecast.forecastday[2].day.maxwind_kph }} км/ч</p>
+                </span>
+                        <!--<hr class="vertical blockf">-->
+                        <span class="blockf">
+                    <p>{{forecasts.data.forecast.forecastday[3].date}}</p>
+                    <span><img ng-src="{{ forecasts.data.forecast.forecastday[3].day.condition.icon }}" alt="" /></span>
+                    <p>{{ forecasts.data.forecast.forecastday[3].day.maxtemp_c }} С<sup>o</sup> | {{ forecasts.data.forecast.forecastday[3].day.mintemp_c }} С<sup>o</sup></p>
+                    <p>{{forecasts.data.forecast.forecastday[3].day.condition.text }}</p>
+                    <p>Ветер: {{forecasts.data.forecast.forecastday[3].day.maxwind_kph }} км/ч</p>
+                </span>
+                        <!--<hr class="vertical blockf">-->
+                        <span class="blockf">
+                    <p>{{forecasts.data.forecast.forecastday[4].date}}</p>
+                    <span><img ng-src="{{ forecasts.data.forecast.forecastday[4].day.condition.icon }}" alt="" /></span>
+                    <p>{{ forecasts.data.forecast.forecastday[4].day.maxtemp_c }} С<sup>o</sup> | {{ forecasts.data.forecast.forecastday[4].day.mintemp_c }} С<sup>o</sup></p>
+                    <p>{{forecasts.data.forecast.forecastday[4].day.condition.text }}</p>
+                    <p>Ветер: {{forecasts.data.forecast.forecastday[4].day.maxwind_kph }} км/ч</p>
+                </span>
+
+                    </div>
+                </div>
+
+            </uib-tab>
+        </uib-tabset>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

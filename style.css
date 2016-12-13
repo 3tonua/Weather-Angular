@@ -1,0 +1,41 @@
+.container{
+    width: 800px;
+    height: 400px;
+    background-image: url("img/fon.jpg");
+    background-size: cover;
+    border-radius: 10px;
+
+}
+.text{
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    line-height: 15px;
+    padding: 0;
+}
+
+h2{
+    text-align: center;
+}
+.block{
+    display: inline-block;
+    margin: 15px;
+
+}
+.blockf{
+    display: inline-block;
+    margin: 25px;
+    /*border-right: white solid;*/
+
+}
+hr{
+    width: 90%;
+}
+.vertical{
+    width:1px;
+    height: 150px;
+    color: white;
+}
+.black{
+    color: black;
+}
