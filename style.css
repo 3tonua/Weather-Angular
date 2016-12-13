@@ -1,10 +1,10 @@
 .container{
-    width: 800px;
+    width: 820px;
     height: 400px;
     background-image: url("img/fon.jpg");
     background-size: cover;
     border-radius: 10px;
-
+    margin-top: 20px;
 }
 .text{
     font-size: 20px;

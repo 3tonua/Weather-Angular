@@ -2,24 +2,16 @@ var app = angular.module('weather', ['ui.bootstrap']);
 
 app.controller('WeatherController', function ($scope, API) {
 
-
-
-
     $scope.searchCity = function () {
         API.searchCity($scope.searchSetting).then(function (searchs) {
             $scope.search = searchs;
             console.log(searchs);
         });
-    };
-
-    $scope.getForecastWeather = function () {
-        API.getForecastWeather().then(function (forecasts) {
+        API.getForecastWeather($scope.searchSetting).then(function (forecasts) {
             $scope.forecasts = forecasts;
             console.log(forecasts);
         });
     };
-
-
 
     $scope.searchSetting = {
         query: null
@@ -33,7 +25,7 @@ app.controller('WeatherController', function ($scope, API) {
 
 app.service('API', function ($http, $q) {
     return{
-        getForecastWeather: function () {
+        getForecastWeather: function (params) {
             var key = 'ad5d39cc015543028f6203619161811';
             var d = $q.defer();
             $http({
@@ -42,7 +34,7 @@ app.service('API', function ($http, $q) {
                 params: {
                     part: "snippet",
                     key: key,
-                    q: 'Odesa',
+                    q: params.query,
                     days: 5
                 }
             }).then(function (data) {
