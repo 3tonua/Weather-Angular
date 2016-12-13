@@ -37,7 +37,7 @@
                         <h2>Текущая погода</h2>
                         <p>{{forecasts.data.current.last_updated}}</p>
                         <img ng-src="{{ forecasts.data.current.condition.icon }}" alt="" />
-                        <p>Температура: {{ searchs.data.current.temp_c }} С<sup>o</sup></p>
+                        <p>Температура: {{ forecasts.data.current.temp_c }} С<sup>o</sup></p>
                         <p>Ветер: {{forecasts.data.current.wind_kph + ' км/ч'}}</p>
                         <p>Влажность: {{forecasts.data.current.humidity + ' %'}}</p>
                     </div>
@@ -52,7 +52,7 @@
                     <div class="text">
                         <h2>Прогноз</h2>
                         <span class="blockf">
-                    <p>{{forecasts.data.forecast.forecastday[1].date}}</p>
+                    <p>{{forecasts.forecastday[1].date}}</p>
                     <span><img ng-src="{{ forecasts.data.forecast.forecastday[1].day.condition.icon }}" alt="" /></span>
                     <p>{{ forecasts.data.forecast.forecastday[1].day.maxtemp_c }} С<sup>o</sup> | {{ forecasts.data.forecast.forecastday[1].day.mintemp_c }} С<sup>o</sup></p>
                     <p>{{forecasts.data.forecast.forecastday[1].day.condition.text }}</p>

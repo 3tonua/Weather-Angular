@@ -6,19 +6,23 @@ app.controller('WeatherController', function ($scope, API) {
 
 
     $scope.searchCity = function () {
-        API.SearchCity($scope.searchSetting).then(function (searchs) {
+        API.searchCity($scope.searchSetting).then(function (searchs) {
             $scope.search = searchs;
             console.log(searchs);
         });
+    };
 
+    $scope.getForecastWeather = function () {
         API.getForecastWeather().then(function (forecasts) {
             $scope.forecasts = forecasts;
             console.log(forecasts);
         });
     };
 
+
+
     $scope.searchSetting = {
-        query: 'kiev'
+        query: null
     };
 
     $scope.current = [];
@@ -29,7 +33,7 @@ app.controller('WeatherController', function ($scope, API) {
 
 app.service('API', function ($http, $q) {
     return{
-        getForecastWeather: function (params) {
+        getForecastWeather: function () {
             var key = 'ad5d39cc015543028f6203619161811';
             var d = $q.defer();
             $http({
@@ -38,7 +42,7 @@ app.service('API', function ($http, $q) {
                 params: {
                     part: "snippet",
                     key: key,
-                    q: params.query,
+                    q: 'Odesa',
                     days: 5
                 }
             }).then(function (data) {
@@ -48,7 +52,7 @@ app.service('API', function ($http, $q) {
             });
             return d.promise
         },
-        SearchCity: function (params) {
+        searchCity: function (params) {
             var key = 'ad5d39cc015543028f6203619161811';
             var d = $q.defer();
             $http({
